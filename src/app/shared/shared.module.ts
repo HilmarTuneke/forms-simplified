@@ -1,6 +1,6 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DropdownComponent } from './dropdown/dropdown.component';
 
@@ -9,13 +9,15 @@ import { DropdownComponent } from './dropdown/dropdown.component';
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule
   ],
   declarations: [DropdownComponent],
   exports: [
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule,
-    DropdownComponent
+    FormsModule,
+    DropdownComponent,
   ]
 })
 export class SharedModule {
