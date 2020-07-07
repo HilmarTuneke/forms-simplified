@@ -21,7 +21,7 @@ const util = require('util');
 
 const isBook = (book) => !!book && !!book.title && isString(book.title)
   && !!book.author && isString(book.author)
-  && !!book.isbn && isString(book.isbn);
+  && !!book.isbn && isString(book.isbn) && !!book.genre;
 const hasBook = (req, res, next) => {
   if (isBook(req.body)) {
     next();
