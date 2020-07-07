@@ -1,8 +1,9 @@
 import {BookService} from './../book.service';
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Book} from '../book';
+import {SelectItem} from "../../shared/customized-select-box/customized-select-box.component";
 
 @Component({
   selector: 'app-book-details',
@@ -13,6 +14,9 @@ export class BookDetailsComponent implements OnInit {
   book: Book;
   submitted: boolean;
   bookForm: FormGroup;
+  genres: SelectItem[] = [
+    {value: 1, text: "Roman"}, {value: 2, text: "Sachbuch"}
+  ];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -28,8 +32,8 @@ export class BookDetailsComponent implements OnInit {
       id: [''],
       author: ['', [Validators.required, Validators.maxLength(20)]],
       title: ['', [Validators.required, Validators.maxLength(50)]],
-      isbn: ['', [Validators.required, Validators.maxLength(13), Validators.pattern('[0-9]*')]
-      ],
+      isbn: ['', [Validators.required, Validators.maxLength(13), Validators.pattern('[0-9]*')]],
+      genre: new FormControl()
     });
 
     this.route.data.subscribe((data: { book: Book }) => {
