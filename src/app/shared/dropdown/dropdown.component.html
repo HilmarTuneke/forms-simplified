@@ -1,1 +1,3 @@
-<p>dropdown works!</p>
+<select name="genres" id="{{id}}">
+    <option *ngFor="let item of items; index as i;">{{item.name}}</option>
+</select>

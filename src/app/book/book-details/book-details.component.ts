@@ -3,6 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Book} from '../book';
+import { Genre } from '../genre';
 
 @Component({
   selector: 'app-book-details',
@@ -11,6 +12,7 @@ import {Book} from '../book';
 })
 export class BookDetailsComponent implements OnInit {
   book: Book;
+  genres: Genre[];
   submitted: boolean;
   bookForm: FormGroup;
 
@@ -32,9 +34,12 @@ export class BookDetailsComponent implements OnInit {
       genre: new FormControl()
     });
 
-    this.route.data.subscribe((data: { book: Book }) => {
+    this.route.data.subscribe((data: { book: Book, bookGenres: Genre[] }) => {
       if (data.book) {
         this.book = data.book;
+      }
+      if (data.bookGenres) {
+        this.genres = data.bookGenres;
       }
       this.bookForm.setValue(this.book);
     });

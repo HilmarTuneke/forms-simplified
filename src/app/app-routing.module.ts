@@ -4,6 +4,7 @@ import { BookOverviewComponent } from './book/book-overview/book-overview.compon
 import { BookDetailsComponent } from './book/book-details/book-details.component';
 import { BookDetailsResolver } from './book/book-details/book-details.resolver';
 import { HomeComponent } from './core/home/home.component';
+import { BookGenresResolver } from './book/book-details/book-genres.resolver';
 
 
 const routes: Routes = [
@@ -20,11 +21,15 @@ const routes: Routes = [
     component: BookDetailsComponent,
     resolve: {
       book: BookDetailsResolver,
+      bookGenres: BookGenresResolver
     }
   },
   {
     path: 'book',
     component: BookDetailsComponent,
+    resolve: {
+      bookGenres: BookGenresResolver
+    }
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
