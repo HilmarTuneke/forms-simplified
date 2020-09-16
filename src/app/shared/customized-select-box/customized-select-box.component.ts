@@ -21,11 +21,11 @@ export class CustomizedSelectBoxComponent implements ControlValueAccessor {
   @Input()
   items: SelectItem[] = [];
 
-  constructor() { }
-
   public selectedValue: number;
 
   private onChange;
+
+  constructor() { }
 
   registerOnChange(fn: any): void {
     this.onChange = fn;

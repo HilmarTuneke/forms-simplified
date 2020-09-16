@@ -7,11 +7,14 @@ import { FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./order.component.scss']
 })
 export class OrderComponent implements OnInit {
+
   orderForm: FormGroup;
+
   constructor(private fb: FormBuilder) {
     this.orderForm = this.fb.group({
       name: this.fb.control(''),
       lastname: this.fb.control(''),
+      address: this.fb.control(''),
     });
   }
 

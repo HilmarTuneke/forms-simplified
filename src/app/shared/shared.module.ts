@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomizedSelectBoxComponent } from './customized-select-box/customized-select-box.component';
+import { AddressComponent } from './address/address.component';
 
 @NgModule({
   imports: [
@@ -11,12 +12,13 @@ import { CustomizedSelectBoxComponent } from './customized-select-box/customized
     ReactiveFormsModule,
     FormsModule,
   ],
-  declarations: [CustomizedSelectBoxComponent],
+  declarations: [CustomizedSelectBoxComponent, AddressComponent],
     exports: [
         CommonModule,
         HttpClientModule,
         ReactiveFormsModule,
-        CustomizedSelectBoxComponent
+        CustomizedSelectBoxComponent,
+        AddressComponent
     ]
 })
 export class SharedModule {
